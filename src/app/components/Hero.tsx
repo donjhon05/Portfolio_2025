@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Github, Linkedin, Mail, Download, ArrowRight, Code, Sparkles } from 'lucide-react';
-import Image from 'next/image';
+
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
   const [displayText, setDisplayText] = useState('');
@@ -216,16 +216,45 @@ const FloatingDots = () => {
               {/* Main Image Container */}
               <div className="relative bg-slate-800 rounded-full p-2">
                 <div className="w-80 h-80 rounded-full overflow-hidden bg-gradient-to-br from-slate-700 to-blue-800 flex items-center justify-center border-4 border-slate-200/20 group-hover:border-blue-300/30 transition-all duration-300">
-                  {/* Your graduation photo */}
-                  <Image
-                    src="/Assets/GRADUATION_PIC1.jpg" // Place your image in the public folder
+                  {/* Graduation photo with fallback */}
+                  <img
+                    src="/graduation_pic1.jpg"
                     alt="DJ - Full Stack Developer & Graduate"
-                    width={320}
-                    height={320}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     style={{ filter: 'contrast(1.1) brightness(1.05)' }}
-                    priority // Ensures faster LCP for above-the-fold images
+                    onError={(e) => {
+                      console.log('Image failed to load, showing fallback');
+                      (e.target as HTMLImageElement).style.display = 'none';
+                      const fallback = (e.target as HTMLImageElement).nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
                   />
+                  
+                  {/* Professional Avatar Fallback */}
+                  <div className="w-full h-full bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 flex flex-col items-center justify-center text-white relative overflow-hidden" style={{ display: 'none' }}>
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-20">
+                      <div className="absolute top-4 left-4 w-16 h-16 border-2 border-white/30 rounded-full"></div>
+                      <div className="absolute bottom-6 right-6 w-12 h-12 border-2 border-white/20 rounded-full"></div>
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-white/10 rounded-full"></div>
+                    </div>
+                    
+                    {/* Avatar Content */}
+                    <div className="relative z-10 text-center">
+                      <div className="text-7xl font-bold mb-2 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                        DJ
+                      </div>
+                      <div className="text-lg font-medium text-blue-100">
+                        Full Stack Developer
+                      </div>
+                      <div className="text-sm text-blue-200 mt-1">
+                        Class of 2024
+                      </div>
+                    </div>
+                    
+                    {/* Subtle animation */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
                 </div>
               </div>
               
@@ -234,9 +263,6 @@ const FloatingDots = () => {
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
                 <span>Open to Work</span>
               </div>
-              
-   
-            
             </div>
 
             {/* Skills Visualization */}

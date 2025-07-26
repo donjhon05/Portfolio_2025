@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import clsx from "clsx";
-import Image from "next/image";
 
 type ProjectItem = {
   title: string;
@@ -183,13 +182,11 @@ const ExpandedCard: React.FC = () => {
                 isHovered && "transform scale-[1.02] z-20 shadow-2xl"
               )}
             >
-              <div className="relative w-full h-64">
-                <Image
+              <div className="relative w-full h-64 overflow-hidden">
+                <img
                   src={item.image}
                   alt={item.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-all duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />  
@@ -212,12 +209,10 @@ const ExpandedCard: React.FC = () => {
             <div className="bg-gray-900/95 backdrop-blur-xl border border-gray-700 rounded-2xl shadow-2xl animate-fadeIn transition-all duration-200 w-[calc(100vw-2rem)] max-w-lg md:max-w-xl lg:max-w-2xl p-4 md:p-6 lg:p-8">
               <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6 mb-4 md:mb-6">
                 <div className="relative w-full sm:w-24 md:w-32 h-16 md:h-20 rounded-lg overflow-hidden flex-shrink-0">
-                  <Image 
+                  <img 
                     src={hoveredItem.image} 
                     alt={hoveredItem.title} 
-                    fill 
-                    sizes="(max-width: 640px) 100vw, 128px"
-                    className="object-cover" 
+                    className="w-full h-full object-cover" 
                   />
                 </div>
                 <div className="flex-1 min-w-0">
