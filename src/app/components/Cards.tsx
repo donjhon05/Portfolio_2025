@@ -20,7 +20,7 @@ const items: ProjectItem[] = [
   {
     title: "Certification",
     description: "A comprehensive portfolio website built with Next.js and modern web technologies.",
-    image: "/Certificate.png",
+    image: "/Assets/Certificate.png",
     technologies: ["React", "Tailwind CSS", "Bootstrap", "HTML", "CSS", "JavaScript"],
     features: [
       "Responsive design across all devices",
@@ -37,7 +37,7 @@ const items: ProjectItem[] = [
   {
     title: "Vet Med Appointment System",
     description: "Full-stack veterinary appointment management system with real-time scheduling.",
-    image: "/Pet_Grooming_App.png",
+    image: "/Assets/Pet_Grooming_App.png",
     technologies: ["React", "Node.js", "MongoDB", "Auth", "Express"],
     features: [
       "Real-time Vet appointment booking",
@@ -54,8 +54,8 @@ const items: ProjectItem[] = [
   {
     title: "Fullstack E-commerce Platform for Garuda Recruitment Agency",
     description: "Complete e-commerce solution with inventory management and payment integration.",
-    image: "/E-Commerce_OutSourcing.jpg",
-    technologies: ["MERN Stack", "Stripe", "Redux", "AWS S3"],
+    image: "/Assets/E-Commerce_OutSourcing.jpg",
+    technologies: ["Wordpress", "Builder", "Elementor", "WooCommerce", "PHP", "MySQL"],
     features: [
       "Product catalog with search",
       "Shopping cart and checkout",
@@ -71,7 +71,7 @@ const items: ProjectItem[] = [
   {
     title: "UI/UX Design System",
     description: "Comprehensive design system and component library for consistent branding.",
-    image: "/UIUX_DESIGN.png",
+    image: "/Assets/UIUX_DESIGN.png",
     technologies: ["React", "Storybook", "Figma", "SaSS", "MUI"],
     features: [
       "50+ reusable components",
@@ -88,7 +88,7 @@ const items: ProjectItem[] = [
   {
     title: "WordPress SyntechNX Web Design",
     description: "Real-time analytics dashboard with advanced data visualization and reporting.",
-    image: "/Syntech_Wireframe.png",
+    image: "/Assets/Syntech_Wireframe.png",
     technologies: ["Elementor Pro", "Paralax", "WPForms", "BackWPUp", "WordFence"],
     features: [
       "Real-time Design/Structure Wireframe",
@@ -105,7 +105,7 @@ const items: ProjectItem[] = [
   {
     title: "Performance Analytics Dashboard",
     description: "Real-time analytics dashboard with advanced data visualization and reporting.",
-    image: "/SDLC_PIC.png",
+    image: "/Assets/SDLC_PIC.png",
     technologies: ["React", "D3.js", "Node.js", "PostgreSQL"],
     features: [
       "Real-time data visualization",
@@ -183,13 +183,16 @@ const ExpandedCard: React.FC = () => {
                 isHovered && "transform scale-[1.02] z-20 shadow-2xl"
               )}
             >
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover transition-all duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+              <div className="relative w-full h-64">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-all duration-700 group-hover:scale-105"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />  
               <div className={clsx(
                 "absolute inset-0 p-6 flex flex-col justify-center transition-all duration-300",
                 isActive ? "opacity-100" : "opacity-0 group-hover:opacity-90"
@@ -209,7 +212,13 @@ const ExpandedCard: React.FC = () => {
             <div className="bg-gray-900/95 backdrop-blur-xl border border-gray-700 rounded-2xl shadow-2xl animate-fadeIn transition-all duration-200 w-[calc(100vw-2rem)] max-w-lg md:max-w-xl lg:max-w-2xl p-4 md:p-6 lg:p-8">
               <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6 mb-4 md:mb-6">
                 <div className="relative w-full sm:w-24 md:w-32 h-16 md:h-20 rounded-lg overflow-hidden flex-shrink-0">
-                  <Image src={hoveredItem.image} alt={hoveredItem.title} fill className="object-cover" />
+                  <Image 
+                    src={hoveredItem.image} 
+                    alt={hoveredItem.title} 
+                    fill 
+                    sizes="(max-width: 640px) 100vw, 128px"
+                    className="object-cover" 
+                  />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">

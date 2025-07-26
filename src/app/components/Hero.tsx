@@ -7,9 +7,7 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const containerRef = useRef(null);
-  
- 
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
 const FloatingDots = () => {
   type Dot = {
@@ -81,7 +79,7 @@ const FloatingDots = () => {
   }, [displayText, isDeleting, currentRole, roles]);
 
   // Mouse tracking for interactive effects
-  useEffect(() => {
+ useEffect(() => {
   const handleMouseMove = (e: MouseEvent) => {
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
@@ -176,7 +174,7 @@ const FloatingDots = () => {
   </button>
 
   <a
-  href="/Update_DJ_CV.pdf"
+  href="/Assets/Update_DJ_CV.pdf"
   download
   aria-label="Download Resume"
   className="group w-full sm:w-auto bg-slate-100/10 backdrop-blur-sm border border-slate-300/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-slate-100/20 transform hover:-translate-y-1 transition-all duration-300 flex items-center space-x-2"
@@ -220,7 +218,7 @@ const FloatingDots = () => {
                 <div className="w-80 h-80 rounded-full overflow-hidden bg-gradient-to-br from-slate-700 to-blue-800 flex items-center justify-center border-4 border-slate-200/20 group-hover:border-blue-300/30 transition-all duration-300">
                   {/* Your graduation photo */}
                   <Image
-                    src="/GRADUATION PIC1.jpg" // Place your image in the public folder
+                    src="/Assets/GRADUATION_PIC1.jpg" // Place your image in the public folder
                     alt="DJ - Full Stack Developer & Graduate"
                     width={320}
                     height={320}
