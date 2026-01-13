@@ -164,17 +164,18 @@ const FloatingDots = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
-  <button
-    type="button"
-    aria-label="View My Work"
-    className="group w-full sm:w-auto bg-gradient-to-r from-blue-500 to-slate-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-500/25 transform hover:-translate-y-1 transition-all duration-300 flex items-center space-x-2"
-  >
-    <span>View My Work</span>
-    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-  </button>
+ <a
+  href="#cards"
+  aria-label="View My Work"
+  className="group w-full sm:w-auto bg-gradient-to-r from-blue-500 to-slate-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-500/25 transform hover:-translate-y-1 transition-all duration-300 flex items-center space-x-2"
+>
+  <span>View My Work</span>
+  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+</a>
+
 
   <a
-  href="/Assets/Update_DJ_CV.pdf"
+  href="/Assets/CV_Magarro.pdf"
   download
   aria-label="Download Resume"
   className="group w-full sm:w-auto bg-slate-100/10 backdrop-blur-sm border border-slate-300/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-slate-100/20 transform hover:-translate-y-1 transition-all duration-300 flex items-center space-x-2"

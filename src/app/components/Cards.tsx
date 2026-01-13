@@ -47,19 +47,19 @@ const items: ProjectItem[] = [
     timeline: "6 weeks",
     status: "In Development",
     demoLink: "https://vetmed-demo.com",
-    githubLink: "https://github.com/user/vetmed",
+    githubLink: "https://github.com/donjhon05/Pauline_AppointmentSystem",
     highlights: "Veterinary Website with real-time appointment booking and management system"
   },
   {
-    title: "Fullstack E-commerce Platform for Garuda Recruitment Agency",
+    title: "Wordpress E-commerce Platform for Garuda Recruitment Agency",
     description: "Complete e-commerce solution with inventory management and payment integration.",
-    image: "/Assets/E-Commerce_OutSourcing.jpg",
+    image: "/Assets/garuda.jpg",
     technologies: ["Wordpress", "Builder", "Elementor", "WooCommerce", "PHP", "MySQL"],
     features: [
       "Product catalog with search",
-      "Shopping cart and checkout",
+      "Outsourcing WordPress Web Design with Elementor Pro and custom features",
       "Order tracking system",
-      "Inventory management"
+      "Recruitment management"
     ],
     timeline: "8 weeks",
     status: "In Development",
@@ -80,7 +80,7 @@ const items: ProjectItem[] = [
     ],
     timeline: "4 weeks",
     status: "Ongoing",
-    demoLink: "https://designsystem-demo.com",
+    demoLink: "#",
     githubLink: "https://github.com/user/design-system",
     highlights: "WCAG 2.1 AA compliant with automated testing"
   },
@@ -160,7 +160,7 @@ const ExpandedCard: React.FC = () => {
   };
 
   return (
-    <div className="w-full px-4 py-20 bg-gradient-to-br from-slate-900 to-blue-900 min-h-screen text-white relative">
+    <div className="w-full px-4 py-20 bg-gradient-to-br from-slate-900 to-blue-900 min-h-screen text-white relative" id="cards">
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold mb-2">Featured Skills and Projects</h1>
         <p className="text-gray-300 max-w-xl mx-auto">
@@ -168,7 +168,7 @@ const ExpandedCard: React.FC = () => {
         </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-4 max-w-7xl mx-auto relative" onMouseLeave={handleMouseLeave}>
+      <div className="flex flex-col lg:flex-row gap-4 max-w-7xl mx-auto relative" onMouseLeave={handleMouseLeave} >
         {items.map((item, index) => {
           const isActive = index === activeId;
           const isHovered = hoveredItem === item;
