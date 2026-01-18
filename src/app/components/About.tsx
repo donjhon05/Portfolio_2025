@@ -78,7 +78,7 @@ const About = () => {
     <section ref={sectionRef} id="about" className="relative py-16 sm:py-20 lg:py-24 bg-white dark:bg-[#111111] transition-colors duration-300 overflow-hidden">
       {/* Scattered 3D Background Graphics */}
       <div className="absolute inset-0 z-0">
-        <BackgroundGraphics intensity={0.35} scope="section" />
+        <BackgroundGraphics intensity={0.35} scope="section" as={React.Fragment} />
       </div>
 
       {/* Animated background orbs */}
