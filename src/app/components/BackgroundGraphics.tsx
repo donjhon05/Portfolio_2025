@@ -13,7 +13,7 @@ const MatrixBackground = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const FONT_SIZE = 32;
+    const FONT_SIZE = 26;
     // Mix of characters, numbers, and symbols for code effect
     const CHARS = 'ｦｧｨｩｪｫｬｭｮｯﾀﾁﾂﾃﾄﾅﾆﾇﾈﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾗﾘﾜ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>?/\\~`';
 
@@ -59,51 +59,24 @@ const MatrixBackground = () => {
       ctx.textAlign = 'left';
 
       drops.forEach((drop) => {
+        // Random character
+        const char = CHARS.charAt(Math.floor(Math.random() * CHARS.length));
+        
         drop.y += drop.speed;
 
         if (drop.y > canvas.height) {
-          drop.y = -FONT_SIZE * 8;
-          drop.trail = Array.from({ length: 8 }, () => 
-            CHARS.charAt(Math.floor(Math.random() * CHARS.length))
-          );
-          drop.trailOpacity = Math.random() * 0.3 + 0.15;
+          drop.y = -FONT_SIZE;
         }
 
-        // Draw the trail with fading effect
-        drop.trail.forEach((char, i) => {
-          const trailY = drop.y - i * FONT_SIZE;
-          
-          if (trailY < -FONT_SIZE || trailY > canvas.height) return;
+        // Subtle green color with higher opacity for visibility
+        ctx.fillStyle = 'rgba(0, 180, 100, 0.35)';
+        ctx.fillText(char, drop.x, drop.y);
 
-          const fadeOpacity = (1 - i / drop.trail.length) * drop.trailOpacity;
-          const isHead = i === 0;
-
-          // Randomly corrupt/glitch characters
-          let displayChar = char;
-          if (Math.random() > 0.85) {
-            displayChar = CHARS.charAt(Math.floor(Math.random() * CHARS.length));
-          }
-
-          if (isHead) {
-            // Bright head with occasional corruption
-            ctx.fillStyle = `rgba(100, 255, 150, ${Math.min(fadeOpacity * 2.5, 0.8)})`;
-            
-            // Add scanline glitch effect
-            if (Math.random() > 0.92) {
-              ctx.globalAlpha = 0.6;
-              ctx.fillStyle = `rgba(255, 0, 100, 0.3)`;
-            }
-          } else if (i < 3) {
-            // Bright mid-trail
-            ctx.fillStyle = `rgba(100, 255, 150, ${fadeOpacity * 1.2})`;
-          } else {
-            // Faded tail
-            ctx.fillStyle = `rgba(0, 180, 100, ${fadeOpacity})`;
-          }
-
-          ctx.fillText(displayChar, drop.x, trailY);
-          ctx.globalAlpha = 1;
-        });
+        // Occasional brighter characters for visual interest
+        if (Math.random() > 0.92) {
+          ctx.fillStyle = 'rgba(100, 255, 150, 0.55)';
+          ctx.fillText(char, drop.x, drop.y);
+        }
       });
 
       animationRef.current = requestAnimationFrame(animate);
