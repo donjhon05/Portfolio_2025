@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import ThemeScript from "./components/ThemeScript";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,13 +15,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DJ Portfolio 2025",
-  description: "Welcome to my modern developer portfolio.",
+  title: "DJ Portfolio 2025 | Full Stack Developer",
+  description: "Modern developer portfolio showcasing full-stack development skills, projects, and expertise in React, Next.js, Node.js, and more.",
+  keywords: ["developer", "portfolio", "full stack", "web development", "React", "Next.js"],
+  authors: [{ name: "Donjhon Magarro" }],
   icons: {
-    icon: "/logo.png", // or "/favicon.png"
+    icon: "/logo.png",
   },
 };
-
 
 export default function RootLayout({
   children,
@@ -27,11 +30,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeScript />
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
