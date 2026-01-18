@@ -26,6 +26,7 @@
     "react-dom": "^19.2.3",
     "react-hook-form": "^7.60.0",
     "tailwind-merge": "^3.3.1",
+    "three": "^0.182.0",
     "yarn": "^1.22.22",
     "zod": "^4.0.5"
   },
