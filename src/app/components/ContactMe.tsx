@@ -67,7 +67,7 @@ export default function ContactMe() {
     <section ref={sectionRef} id="contact" className="relative py-16 sm:py-20 lg:py-24 bg-white dark:bg-[#111111] transition-colors duration-300 overflow-hidden">
       {/* Scattered 3D Background Graphics */}
       <div className="absolute inset-0 z-0">
-        <BackgroundGraphics intensity={0.3} scope="section" />
+        <BackgroundGraphics intensity={0.3} />
       </div>
 
       {/* Animated background elements */}

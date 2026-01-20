@@ -78,13 +78,13 @@ const About = () => {
     <section ref={sectionRef} id="about" className="relative py-16 sm:py-20 lg:py-24 bg-white dark:bg-[#111111] transition-colors duration-300 overflow-hidden">
       {/* Scattered 3D Background Graphics */}
       <div className="absolute inset-0 z-0">
-        <BackgroundGraphics intensity={0.35} scope="section" as={React.Fragment} />
+        <BackgroundGraphics intensity={0.35} as={React.Fragment} />
       </div>
 
       {/* Animated background orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse dark:mix-blend-multiply z-1" style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
-      <div className="absolute bottom-40 right-20 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-3xl dark:mix-blend-multiply z-1" style={{ animation: 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite 2s' }} />
-      <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-blue-300/10 dark:bg-blue-400/5 rounded-full blur-3xl dark:mix-blend-multiply z-1" style={{ animation: 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite 4s' }} />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse-4s dark:mix-blend-multiply z-1" />
+      <div className="absolute bottom-40 right-20 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-3xl dark:mix-blend-multiply animate-pulse-5s z-1" />
+      <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-blue-300/10 dark:bg-blue-400/5 rounded-full blur-3xl dark:mix-blend-multiply animate-pulse-6s z-1" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -94,7 +94,7 @@ const About = () => {
             <span className="text-xs sm:text-sm font-medium text-blue-600 dark:text-blue-400">Professional Profile</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-            About <span className="bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 dark:from-cyan-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">Me</span>
+            About <span className="bg-linear-to-r from-cyan-600 via-purple-600 to-pink-600 dark:from-cyan-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">Me</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-black dark:text-white max-w-3xl mx-auto leading-relaxed px-4 font-semibold">
             A passionate developer dedicated to creating exceptional digital experiences and driving business growth through technology
@@ -135,16 +135,16 @@ const About = () => {
                 <div
                   key={index}
                   data-index={index}
+                  data-delay={index * 100}
                   className={`group relative p-6 sm:p-8 bg-white dark:bg-[#0a0a0a]/90 rounded-2xl sm:rounded-3xl border-2 border-gray-200 dark:border-gray-700/60 hover:border-cyan-400 dark:hover:border-cyan-500 transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/30 transform hover:-translate-y-3 hover:scale-105 backdrop-blur-sm ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   {/* Glow effect on hover */}
-                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-linear-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-linear-to-br from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                       <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                     </div>
                     <div className="text-xs font-bold text-black dark:text-white mb-1.5 sm:mb-2 uppercase tracking-wide">
@@ -173,16 +173,16 @@ const About = () => {
                 <div
                   key={index}
                   data-index={index + 10}
+                  data-delay={index * 150}
                   className={`group relative text-center p-6 sm:p-8 bg-white dark:bg-[#0a0a0a]/90 rounded-2xl sm:rounded-3xl border-2 border-gray-200 dark:border-gray-700/60 hover:border-cyan-400 dark:hover:border-cyan-500 transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/30 transform hover:-translate-y-3 hover:scale-105 backdrop-blur-sm ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
-                  style={{ transitionDelay: `${index * 150}ms` }}
                 >
                   {/* Glow effect on hover */}
-                  <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-linear-to-br from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500 flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-linear-to-br from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500 flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
                       <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                     </div>
                     <h4 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-black dark:text-white">{value.title}</h4>

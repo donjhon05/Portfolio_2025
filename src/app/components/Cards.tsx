@@ -214,7 +214,7 @@ const Cards: React.FC = () => {
     <section ref={sectionRef} id="projects" className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-[#0a0a0a] dark:to-[#111111] transition-colors duration-300 overflow-hidden">
       {/* Scattered 3D Background Graphics */}
       <div className="absolute inset-0 z-0">
-        <BackgroundGraphics intensity={0.25} scope="section" />
+        <BackgroundGraphics intensity={0.25} />
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
